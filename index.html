@@ -47,9 +47,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: 'کپی',
+      copy_success: 'کپی شد',
+      copy_failure: 'کپی انجام نشد'
     },
     sidebarPadding: 40
   };
@@ -131,7 +131,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="تغییر ناوبری">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -151,7 +151,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>صفحه اصلی</a>
 
   </li>
       
@@ -162,7 +162,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>بایگانی</a>
 
   </li>
   </ul>
@@ -191,6 +191,197 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/初学Git命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/29/初学Git命令/" class="post-title-link" itemprop="url">初学Git命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">نوشته شده در</span>
+
+              
+                
+              
+
+              <time title="ایجاد شده: 2019-08-29 19:28:29 / تغییر یافته: 19:29:14" itemprop="dateCreated datePublished" datetime="2019-08-29T19:28:29+08:00">2019-08-29</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>初学Git——命令总结</p>
+<p>首先，感谢廖雪峰老师制作的Git教程：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000，下面命令是我自己的理解，若有不正确的地方，欢迎指正，谢谢！" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000，下面命令是我自己的理解，若有不正确的地方，欢迎指正，谢谢！</a></p>
+<ol>
+<li>Git简介</li>
+</ol>
+<p>// 1. 创建版本库</p>
+<p>$ cd:e // 切换盘符</p>
+<p>$ cd .. // 回到文件上一层(注: cd与..中间有个空格)</p>
+<p>$ cd ~ // 回到当前目录的主目录</p>
+<p>$ mkdir Git // 创建文件夹Git</p>
+<p>$ touch fileName // 新建文件</p>
+<p>$ vi fileName // 编辑文件</p>
+<p>$ press i button // 开始进入编辑状态</p>
+<p>$ press the Esc button // 退出vim编辑区</p>
+<p>$ :wq // 退出编辑状态, 回到命令窗口</p>
+<p>$ mkdir learngit // 创建文件夹learngit </p>
+<p>$ pwd // 显示当前路径/e/Git/learngit</p>
+<p>$ git init // 将当前目录变成一个Git可以管理的仓库</p>
+<p>$ touch+文件名 // 直接新建一个文件</p>
+<p>$ git add readme.txt // 将文件添加到Git仓库（把文件修改添加到暂存区）</p>
+<p>$ git commit -m “wrote a readme.txt.” // 将文件提交到仓库（把暂存区的所有内容提交到当前分支）</p>
+<p>$ git add file1.txt // 添加file1.txt文件</p>
+<p>$ git add file2.txt file3.txt // 同时添加file2.txt和file3.txt两个文件</p>
+<p>$ git commit -m “add 3 files.” // 一次性提交3个文件</p>
+<ol start="2">
+<li>时光穿梭机：</li>
+</ol>
+<p>// 2.1 版本回退</p>
+<p>$ git status // 查看当前仓库状态（仓库下的工作区文件是否被修改过）</p>
+<p>$ git diff readme.txt // 查看工作区的readme.txt与缓存区的readme.txt的区别</p>
+<p>$ git log // 查看最近到最远的提交记录（详情: commit id + Author + Date + comment）</p>
+<p>$ git log –pretty=oneline // 查看最近到最远的提交记录（简写：commit id + comment）</p>
+<p>$ git reset –hard HEAD^ // 回到上一个版本（HEAD: 当前版本，HEAD^: 上一个版本，HEAD~100: 往上100个版本）</p>
+<p>$ git reset –hard 1234567 // 回到指定版本号commit id（此处：commit id 假设为1234567<strong>**</strong>，Git会根据commit id的前几位自动寻找对应的版本）</p>
+<p>$ cat readme.txt // 查看readme.txt的内容</p>
+<p>$ git reflog // 查看每一次命令记录历史，确保能回到任意版本　　</p>
+<p>// 2.2 工作区与暂存区</p>
+<p>$ git diff readme.txt // 比较工作区（working directory）和暂存区（stage/index）的区别</p>
+<p>$ git diff –cached // 比较暂存区（stage/index）和分支（master）的区别</p>
+<p>// 2.3 管理修改（详见1. 创建版本库中的命令）</p>
+<p>// 2.4 撤销修改</p>
+<p>$ git checkout – readme.txt // 撤销修改：1. 文件在添加到缓存区前修改，则回退到原工作区状态；2. 文件在添加到缓存区后修改，则回退到原缓存区状态。也即是将readme.txt撤回到最近一次git add或git commit状态（注：–表示在当前分支，如果没有，则切换到另一个分支）</p>
+<p>$ cat readme.txt // 查看文件内容</p>
+<p>$ git reset HEAD readme.txt // 1. 回退到最新版本；2. 将暂存区的修改回退到工作区</p>
+<p>// 2.5 删除文件</p>
+<p>$ rm test.txt // 删除工作区文件（类似于手动删除）</p>
+<p>$ git status // 查看当前工作区与缓存区状态</p>
+<p>$ git rm test.txt // 情况1：确认删除</p>
+<p>$ git commit -m “remove test.txt” // 情况1：确认删除后，提交到版本库</p>
+<p>$ git checkout – readme.txt // 情况2：误删，需要回退（即：用版本库里的版本替换工作区的版本）</p>
+<p>// 3. 远程仓库</p>
+<p>// 3.1 添加远程库</p>
+<p>git remote add origin git@server-name:path/repo-name.git // 关联一个远程仓库，如：$ git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:ChrisLeejing/learngit.git</p>
+<p>git push -u origin master // 第一次推送master分支的所有内容</p>
+<p>注：在GitHub上创建新仓库时，如果勾选了README.md选项时，可能会出现下面错误，提示：远程仓库有readme.txt,而本地仓库没有README.txt,此时应该先进行合并文件，再进行推送。</p>
+<p>git pull –rebase origin master // 推送之前，进行合并</p>
+<p>合并文件之后，发现本地仓库中多了README.md文件，此时再进行推送修改到远程仓库就可以了。</p>
+<p>再次执行：git push -u origin master, 即可推送本地仓库到远程仓库了</p>
+<p>查看GitHub上的文件，已经更新！</p>
+<p>git push origin master // 以后每次本地修改更新后，推送最新修改</p>
+<p>// 3.2 从远程库克隆</p>
+<p>$ git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:ChrisLeejing/gitskills.git // 以SSH方式克隆</p>
+<p>$ git clone <a href="https://github.com/ChrisLeejing/gitskills.git" target="_blank" rel="noopener">https://github.com/ChrisLeejing/gitskills.git</a> // 以Https协议方式克隆</p>
+<p>// 4. 分支管理</p>
+<p>// 4.1 创建与合并分支</p>
+<p>git branch // 查看所有分支（当前分支以‘*’标记）</p>
+<p>git branch <name> // 创建分支（如：git branch dev）</name></p>
+<p>git checkout <name> // 切换分支</name></p>
+<p>git checkout -b <name> // 创建切换分支（如：git checkout -b dev）</name></p>
+<p>git merge <name> // 合并分支到当前分支上</name></p>
+<p>git branch -d <name> // 删除该分支</name></p>
+<p>// 4.2 解决冲突</p>
+<p>git log –graph // 查看分支合并图</p>
+<p>git log –graph –pretty=oneline –abbrev-commit // 查看分支合并缩略图</p>
+<p>// 4.3 分支管理策略</p>
+<p>git merge –no-ff -m “注释” dev // 合并后的分支有历史记录，而Fast-Forward合并之后，分支没有历史记录</p>
+<p>// 4.4 Bug分支</p>
+<p>git stash // 隐藏分支工作现场，为修复bug准备</p>
+<p>git stash list // 查看有哪些分支隐藏的工作现场，为恢复工作现场做准备</p>
+<p>git stash apply // 恢复工作现场，但不删除存储的stash内容，结合git stash drop进行删除</p>
+<p>git stash drop // 删除存储的stash内容，恢复到隐藏前的工作现场</p>
+<p>git stash pop // 恢复到隐藏前的工作现场，相当于git stash apply和git stash drop</p>
+<p>git stash apply stash@{0} // 可以多次stash，通过git stash list查看所有的stash，然后可以恢复到指定的隐藏的工作现场</p>
+<p>// 4.5 Feature分支</p>
+<p>注：当添加一个feature时，最好新建一个分支：git checkout -b <name></name></p>
+<p>git branch -D <name> // 强行删除一个没有被合并到主分支的分支</name></p>
+<p>// 4.6 多人协作（最好结合工作场景理解）</p>
+<p>git remote -v // 查看远程库详细信息</p>
+<p>git push origin dev // push本地dev分支到远程dev</p>
+<p>git push origin master // push本地master分支到远程master（时刻保持同步）</p>
+<p>git pull // 将最新的pull/dev(master)爬下来</p>
+<p>git checkout -b branch-name origin/branch-name // 在本地创建和远程分支对应的分支</p>
+<p>git branch –set-upstream-to=origin/<branch> dev // 建立本地分支和远程分支的关联</branch></p>
+<p>// 4.7 Rebase</p>
+<p>git rebase // 将本地未push的分支提交整理成直线，利于查看</p>
+<p>// 5. 标签管理</p>
+<p>// 5.1 创建标签</p>
+<p>git tag <tagname> // 创建标签</tagname></p>
+<p>git tag // 查看所有标签</p>
+<p>git tag <tagname> commitId // 为某次提交创建指定标签</tagname></p>
+<p>git show <tagname> // 查看指定标签具体内容</tagname></p>
+<p>git tag -a <tagname> -m “v0.1 released” commitId // 为某次指定的提交创建标签，同时添加标签注释</tagname></p>
+<p>git tag -d <tagname> // 删除某个标签</tagname></p>
+<p>git push origin <tagname> // 推送某个标签到远程库</tagname></p>
+<p>git push origin –tags // 一次性推送所有标签到远程库</p>
+<p>git tag -d v0.9 // 删除远程库标签（第一步：删除本地库标签）</p>
+<p>git push origin :refs/tags/v0.9 // 删除远程库标签（第二步：从远程库删除标签）</p>
+<p>// 6. 使用GitHub</p>
+<p>在GitHub上，可以自己fork任意开源仓库，自己拥有fork后的仓库的读与写操作权限，可以推送pull request给官方仓库贡献代码。</p>
+<p>// 7. 使用码云（与GitHub类似，用到的时候，再注册使用练习，毕竟GitHub更加NB一些！）</p>
+<p>// 8. 自定义Git（这里只是简单入门）</p>
+<p>git config –global color.ui true // 让Git显示颜色</p>
+<p>// 8.1 忽略特殊文件</p>
+<p>忽略某些文件时，需要编写.gitignore文件，文件本身要放到版本库中，Git可以对.gitignore做版本管理！（注：不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore）" target="_blank" rel="noopener">https://github.com/github/gitignore）</a></p>
+<p>// 8.2 配置别名</p>
+<p>git config –global alias.st status // 将st作为status的别名，以后就可以git st查看暂存区与工作区的状态了（还有类似co:checkout, ci:commit, br:branch，–global:是针对于当前用户起作用的，如果不加，则只针对于当前仓库）</p>
+<p>cat .gitignore // 查看当前文件所有配置信息（包括别名信息）</p>
+<p>// 8.3 搭建Git服务器（暂时用不上，用的时候，再复习一下）</p>
+<p>到此，Git教程学完，感谢廖雪峰老师！为了让自己不遗忘，记下自己练习的Git命令地址：E:\Git\learngit\note.txt</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/dearsha/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,13 +405,13 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-29 17:41:35 / Geändert am: 17:44:22" itemprop="dateCreated datePublished" datetime="2019-08-29T17:41:35+08:00">2019-08-29</time>
+              <time title="ایجاد شده: 2019-08-29 17:41:35 / تغییر یافته: 17:44:22" itemprop="dateCreated datePublished" datetime="2019-08-29T17:41:35+08:00">2019-08-29</time>
             </span>
           
             
@@ -287,13 +478,13 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-29 14:20:01 / Geändert am: 14:20:54" itemprop="dateCreated datePublished" datetime="2019-08-29T14:20:01+08:00">2019-08-29</time>
+              <time title="ایجاد شده: 2019-08-29 14:20:01 / تغییر یافته: 14:20:54" itemprop="dateCreated datePublished" datetime="2019-08-29T14:20:01+08:00">2019-08-29</time>
             </span>
           
             
@@ -1466,13 +1657,13 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-29 11:46:33 / Geändert am: 13:54:53" itemprop="dateCreated datePublished" datetime="2019-08-29T11:46:33+08:00">2019-08-29</time>
+              <time title="ایجاد شده: 2019-08-29 11:46:33 / تغییر یافته: 13:54:53" itemprop="dateCreated datePublished" datetime="2019-08-29T11:46:33+08:00">2019-08-29</time>
             </span>
           
             
@@ -1538,13 +1729,13 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-29 11:18:20" itemprop="dateCreated datePublished" datetime="2019-08-29T11:18:20+08:00">2019-08-29</time>
+              <time title="ایجاد شده: 2019-08-29 11:18:20" itemprop="dateCreated datePublished" datetime="2019-08-29T11:18:20+08:00">2019-08-29</time>
             </span>
           
 
@@ -1615,10 +1806,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          فهرست مطالب
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          نمای کلی
         </li>
       </ul>
 
@@ -1637,8 +1828,8 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">پست ها</span>
         </a>
       </div>
     
@@ -1653,7 +1844,7 @@
           
         
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">schlagwörter</span>
+        <span class="site-state-item-name">برجسب ها</span>
         
       </div>
     
@@ -1679,9 +1870,9 @@
   </span>
   <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+  <div class="theme-info">پوسته – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
 
         
 
